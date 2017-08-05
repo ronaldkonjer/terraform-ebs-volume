@@ -23,7 +23,7 @@ If a non-zero IOPs is specified then an io1 volume type is created and the speci
 
 Name | Description
 ---- | -----------
-`volume_ids` | comma separated list of volume IDs
+`volume_ids` | list of volume IDs
 
 ## Tests
 
