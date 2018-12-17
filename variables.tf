@@ -2,39 +2,34 @@
  * EBS variables
  */
 
-variable "volumes_per_az" {
-  description = "number of volumes per AZ"
-  default = 1
+variable "name" {
+  type = "string"
+  description = "name to use in tag"
 }
 
 variable "role" {
   type = "string"
-  description = "server role"
-}
-
-variable "app_name" {
-  type = "string"
-  description = "application name"
-}
-
-variable "environment" {
-  type = "string"
-  description = "environment to configure"
+  description = "role to use in tag"
 }
 
 variable "availability_zones" {
   type = "list"
-  description = "list of AZs"
+  description = "list of availability zones"
+}
+
+variable "volumes_per_az" {
+  description = "number of volumes per availability zone"
+  default = 1
 }
 
 variable "type" {
-  description = "EBS volume type (standard, gp2, st1)"
+  description = "EBS volume type (standard, gp2, io1, st1, etc.)"
   default = "standard"
 }
 
 variable "size" {
+  type = "string"
   description = "volume size (GB)"
-  default = 30
 }
 
 variable "iops" {

@@ -2,29 +2,25 @@
 
 ## Description
 
-This module creates EBS volumes
+This module creates EBS volumes.
 
 ## Variables
 
 Name | Description | Default
 ---- | ----------- | -------
-`app_name` | application name | cmx |
-`availability_zones` | list of AZs | |
+`availability_zones` | list of availability zones | |
 `environment` | environment to configure | |
 `iops` | I/O operations per second (max is 50x volume size) | 0 |
-`role` | volume tag | |
-`size` | EBS storage size (GB) | 30 |
-`type` | EBS volume type (standard, gp2, st1) | standard |
-`volumes_per_az` | number of volumes per AZ | 1 |
+`name` | name to use in tag | |
+`role` | role to use in tag | |
+`size` | EBS storage size (GB) | |
+`type` | EBS volume type (standard, gp2, io1, st1, etc.) | standard |
+`volumes_per_az` | number of volumes per availability zone | 1 |
 
-If a non-zero IOPs is specified then an io1 volume type is created and the specified type is ignored.
+If the type is io1 then the iops parameter must be specified.
 
 ## Outputs
 
 Name | Description
 ---- | -----------
 `volume_ids` | list of volume IDs
-
-## Tests
-
-The test documentation can be found in test/main.tf.
