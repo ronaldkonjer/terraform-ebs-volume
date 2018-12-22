@@ -4,12 +4,17 @@
 
 variable "name" {
   type = "string"
-  description = "name to use in tag"
+  description = "name to use in tags"
 }
 
-variable "role" {
+variable "app" {
   type = "string"
-  description = "role to use in tag"
+  description = "app to use in tags"
+}
+
+variable "vol" {
+  description = "volume name to use in tags"
+  default = ""
 }
 
 variable "availability_zones" {

@@ -11,7 +11,8 @@ data "aws_availability_zones" "current" {}
 module "ebs" {
   source = ".."
   name = "test"
-  role = "app"
+  app = "app"
+  vol = "log"
   availability_zones = "${data.aws_availability_zones.current.names}"
   volumes_per_az = 2
   size = 30
@@ -21,7 +22,7 @@ module "ebs" {
 module "ebs-iops" {
   source = ".."
   name = "test"
-  role = "db"
+  app = "db"
   availability_zones = "${data.aws_availability_zones.current.names}"
   size = 50
   iops = 500
