@@ -4,6 +4,15 @@
 
 This module creates EBS volumes.
 
+## Versions
+
+If you wish to lock into a specific version of this module you can use the
+`ref` query parameter. Currently the version released in August 2017 is labeled
+with tag `VER_1`. Use the following module source parameter to select this
+version:
+
+    source = "github.com/conrad-mukai/terraform-ebs-volume.git?ref=VER_1"
+
 ## Variables
 
 | Name | Description | Default |
