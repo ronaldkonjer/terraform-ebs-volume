@@ -3,6 +3,6 @@
  */
 
 locals {
-  volume_tag = "${var.name}-${var.app}${var.vol}"
+  volume_tag = "${module.label.id}-${var.vol}"
 }
 

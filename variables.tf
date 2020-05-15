@@ -7,11 +7,6 @@ variable "name" {
   description = "name to use in tags"
 }
 
-variable "app" {
-  type        = string
-  description = "app to use in tags"
-}
-
 variable "vol" {
   description = "volume name to use in tags"
   default     = ""
@@ -41,4 +36,39 @@ variable "iops" {
   description = "I/O operations per second (max is 50x volume size)"
   default     = 0
 }
+
+variable "environment" {
+  description = "Stage, e.g. ‘prod’, ‘staging’, ‘dev’, or ‘test’"
+  type = string
+}
+
+variable "namespace" {
+  type        = string
+  description = "Namespace, which could be your organization name or abbreviation, (e.g. `eg` or `cp`)"
+  default     = "cg"
+}
+
+variable "delimiter" {
+  type        = string
+  default     = "-"
+  description = "Delimiter to be used between `name`, `namespace`, `stage` and `attributes`"
+}
+
+variable "enabled" {
+  description = "Set to false to prevent the module from creating any resources"
+  default     = "true"
+}
+
+variable "attributes" {
+  type        = list(string)
+  default     = []
+  description = "Additional attributes (e.g. `1`)"
+}
+
+variable "tags" {
+  type        = map(string)
+  default     = {}
+  description = "Additional tags (e.g. map(`BusinessUnit`,`XYZ`)"
+}
+
 

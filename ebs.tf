@@ -7,6 +7,7 @@ resource "aws_ebs_volume" "volume" {
   availability_zone = element(var.availability_zones, count.index)
   type              = var.type
   size              = var.size
+
   tags = {
     Name = "${local.volume_tag}${format("%02d", count.index + 1)}"
   }
