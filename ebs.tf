@@ -8,9 +8,12 @@ resource "aws_ebs_volume" "volume" {
   type              = var.type
   size              = var.size
 
-  tags = {
+  tags = merge(
+  module.label.tags,
+  {
     Name = "${local.volume_tag}${format("%02d", count.index + 1)}"
   }
+  )
 }
 
 resource "aws_ebs_volume" "iops-volume" {
@@ -19,8 +22,11 @@ resource "aws_ebs_volume" "iops-volume" {
   type              = var.type
   size              = var.size
   iops              = var.iops
-  tags = {
+  tags = merge(
+  module.label.tags,
+  {
     Name = "${local.volume_tag}${format("%02d", count.index + 1)}"
   }
+  )
 }
 

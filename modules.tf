@@ -10,9 +10,9 @@ module "label" {
   namespace  = var.namespace
   stage      = var.environment
   tags       = var.tags
-  delimiter  = "-"
-  attributes = []
-  enabled    = true
+  delimiter  = var.delimiter
+  attributes = var.attributes
+  enabled    = var.enabled
 
-  label_order = ["name", "namespace", "stage"]
+  label_order = var.label_order
 }
