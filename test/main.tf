@@ -14,7 +14,6 @@ module ebs {
   availability_zones = data.aws_availability_zones.current.names
   volumes_per_az = 2
   size = 30
-  dlm_iam_role_arn = aws_iam_role.dlm.arn
 }
 
 module ebs-no-backup {
@@ -32,5 +31,4 @@ module "ebs-iops" {
   type = "io1"
   size = 50
   iops = 500
-  dlm_iam_role_arn = aws_iam_role.dlm.arn
 }

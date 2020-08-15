@@ -10,7 +10,7 @@ snapshots.
 | Name | Type | Description | Default |
 | ---- | ---- | ----------- | ------- |
 | availability_zones | list(string) | list of availability zones |  |
-| dlm_iam_role_arn | string | IAM role for DLM service | "" |
+| dlm_iam_role_arn | string | IAM role for DLM service (default is role created by aws dlm create-default-role) | "" |
 | dlm_period | number | frequency of snapshot in hours (valid values are 1, 2, 3, 4, 6, 8, 12, or 24) | 24 |
 | dlm_retention | number | retention count | 7 |
 | dlm_start_time | string | start time in 24 hour format (default is a random time) | "" |
