@@ -3,5 +3,6 @@
  */
 
 output "volume_ids" {
-  value = ["${aws_ebs_volume.volume.*.id}", "${aws_ebs_volume.iops-volume.*.id}"]
+  description = "EBS volume IDs"
+  value = local.volume_ids
 }

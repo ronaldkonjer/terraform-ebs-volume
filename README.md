@@ -2,34 +2,29 @@
 
 ## Description
 
-This module creates EBS volumes.
+This module creates EBS volumes and optionally a DLM policy for automated
+snapshots.
 
-## Versions
+## Input Variables
 
-If you wish to lock into a specific version of this module you can use the
-`ref` query parameter. Currently the version released in August 2017 is labeled
-with tag `VER_1`. Use the following module source parameter to select this
-version:
+| Name | Type | Description | Default |
+| ---- | ---- | ----------- | ------- |
+| availability_zones | list(string) | list of availability zones |  |
+| dlm_iam_role_arn | string | IAM role for DLM service | "" |
+| dlm_period | number | frequency of snapshot in hours (valid values are 1, 2, 3, 4, 6, 8, 12, or 24) | 24 |
+| dlm_retention | number | retention count | 7 |
+| dlm_start_time | string | start time in 24 hour format (default is a random time) | "" |
+| enable_backup | bool | flag to turn on backups | true |
+| iops | number | I/O operations per second (only for type io1) | 100 |
+| name | string | name to use in tags |  |
+| size | number | volume size (GB) |  |
+| type | string | EBS volume type (gp2, io1, st1, sc1) | gp2 |
+| volumes_per_az | number | number of volumes per availability zone | 1 |
 
-    source = "github.com/conrad-mukai/terraform-ebs-volume.git?ref=VER_1"
-
-## Variables
-
-| Name | Description | Default |
-| ---- | ----------- | ------- |
-| `app` | app to use in tags | |
-| `availability_zones` | list of availability zones | |
-| `iops` | I/O operations per second (max is 50x volume size) | 0 |
-| `name` | name to use in tag | |
-| `size` | EBS storage size (GB) | |
-| `type` | EBS volume type (standard, gp2, io1, st1, etc.) | standard |
-| `vol` | volume name to use in tags | |
-| `volumes_per_az` | number of volumes per availability zone | 1 |
-
-If the type is io1 then the iops parameter must be specified.
+If type is io1 then the iops parameter is used; otherwise, it is ignored.
 
 ## Outputs
 
 | Name | Description |
 | ---- | ----------- |
-| `volume_ids` | list of volume IDs |
+| volume_ids | EBS volume IDs |
