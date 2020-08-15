@@ -43,7 +43,7 @@ variable enable_backup {
 
 variable dlm_iam_role_arn {
   type = string
-  description = "IAM role for DLM service"
+  description = "IAM role for DLM service (default is role created by aws dlm create-default-role)"
   default = ""
 }
 
