@@ -7,24 +7,29 @@ provider "aws" {
   profile = var.user_secret_profile
 }
 
-data "aws_availability_zones" "current" {}
+data aws_availability_zones current {}
 
-module "ebs" {
-  source             = ".."
-  name               = "app"
-  environment        = "test"
-  vol                = "log"
+module ebs {
+  source = "./.."
+  name = "test-gp2"
   availability_zones = data.aws_availability_zones.current.names
-  volumes_per_az     = 2
-  size               = 30
-  type               = "standard"
+  volumes_per_az = 2
+  size = 30
+}
+
+module ebs-no-backup {
+  source = "./.."
+  name = "test-no-backup"
+  availability_zones = data.aws_availability_zones.current.names
+  size = 30
+  enable_backup = false
 }
 
 module "ebs-iops" {
-  source             = ".."
-  name               = "db"
-  environment        = "test"
+  source = "./.."
+  name = "test-io1"
   availability_zones = data.aws_availability_zones.current.names
-  size               = 50
-  iops               = 500
+  type = "io1"
+  size = 50
+  iops = 500
 }

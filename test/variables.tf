@@ -3,7 +3,7 @@
  */
 
 variable "region" {
-  type = string
+  type = "string"
 }
 
 variable "user_secret_profile" {
