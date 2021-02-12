@@ -4,7 +4,7 @@
 
 resource aws_dlm_lifecycle_policy backup {
   count = var.enable_backup ? 1 : 0
-  description = "${var.name} snapshots"
+  description = "${module.this.id} snapshots"
   execution_role_arn = local.dlm_iam_role
   policy_details {
     resource_types = ["VOLUME"]

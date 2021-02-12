@@ -1,12 +1,6 @@
 /*
  * EBS variables
  */
-
-variable name {
-  type = string
-  description = "name to use in tags"
-}
-
 variable availability_zones {
   type = list(string)
   description = "list of availability zones"

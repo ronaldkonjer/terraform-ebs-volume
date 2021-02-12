@@ -8,7 +8,7 @@ resource aws_ebs_volume volumes {
   type = var.type
   size = var.size
   tags = {
-    Name = "${var.name}${format("%02d", count.index+1)}"
+    Name = "${module.this.id}${format("%02d", count.index+1)}"
     DLM = var.name
   }
 }
@@ -20,7 +20,7 @@ resource aws_ebs_volume iops-volumes {
   size = var.size
   iops = var.iops
   tags = {
-    Name = "${var.name}${format("%02d", count.index+1)}"
+    Name = "${module.this.id}${format("%02d", count.index+1)}"
     DLM = var.name
   }
 }
