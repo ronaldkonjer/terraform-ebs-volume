@@ -3,7 +3,7 @@
  */
 
 variable "name" {
-  type = "string"
+  type = string
   description = "name to use in tags"
 }
 
